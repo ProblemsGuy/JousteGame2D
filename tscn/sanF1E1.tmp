@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjet8dv3d57jy"]
+
+[ext_resource type="Script" path="res://src/sandbag.gd" id="1_184ul"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pku08"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h376b"]
+size = Vector2(65, 63)
+
+[node name="Sandbag" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_pku08")
+script = ExtResource("1_184ul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h376b")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(3.25, 3.15)
+color = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)

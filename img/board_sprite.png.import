@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rtde1nxj7k54"
-path="res://.godot/imported/circile_sprite.png-845bf4be7db571f6f56613600e453237.ctex"
+path="res://.godot/imported/board_sprite.png-83d375593b25b99bf038eda16e616b64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/circile_sprite.png"
-dest_files=["res://.godot/imported/circile_sprite.png-845bf4be7db571f6f56613600e453237.ctex"]
+source_file="res://img/board_sprite.png"
+dest_files=["res://.godot/imported/board_sprite.png-83d375593b25b99bf038eda16e616b64.ctex"]
 
 [params]
 

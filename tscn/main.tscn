@@ -1,21 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://cktngj8qr204n"]
+[gd_scene load_steps=7 format=3 uid="uid://cktngj8qr204n"]
 
-[ext_resource type="PackedScene" uid="uid://lu2gmqaoa7cy" path="res://circle.tscn" id="1_85p8j"]
+[ext_resource type="PackedScene" uid="uid://lu2gmqaoa7cy" path="res://tscn/circle.tscn" id="1_v5ism"]
+[ext_resource type="PhysicsMaterial" uid="uid://cbtxnuuburwg" path="res://frictionless_material.tres" id="2_jy5ke"]
+[ext_resource type="PackedScene" uid="uid://cjet8dv3d57jy" path="res://tscn/sandbag.tscn" id="3_2s1k0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_308ji"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rfa8d"]
 friction = 0.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ekiqp"]
+distance = -762.0
+
 [node name="Main" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_85p8j")]
+[node name="Boarder" parent="." instance=ExtResource("1_v5ism")]
 position = Vector2(560, 436)
 physics_material_override = SubResource("PhysicsMaterial_308ji")
 constant_torque = 0.0
 
 [node name="Area2D" type="StaticBody2D" parent="."]
-position = Vector2(-3, 146)
+position = Vector2(1, 4)
 physics_material_override = SubResource("PhysicsMaterial_rfa8d")
 
 [node name="Polygon2D" type="Polygon2D" parent="Area2D"]
@@ -23,3 +28,14 @@ polygon = PackedVector2Array(0, -7, -1, 651, 1154, 645, 1153, -1, 1136, 46, 1102
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(0, -7, -1, 651, 1154, 645, 1153, -1, 1136, 46, 1102, 129, 1040, 224, 1000, 271, 962, 313, 935, 343, 897, 371, 859, 389, 806, 411, 745, 439, 719, 443, 655, 463, 615, 464, 571, 463, 506, 466, 480, 457, 405, 452, 359, 440, 317, 419, 256, 378, 188, 319, 153, 266, 127, 203, 75, 123, 50, 67, 16, 3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = ExtResource("2_jy5ke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(536, 762)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_ekiqp")
+
+[node name="Sandbag" parent="." instance=ExtResource("3_2s1k0")]
+position = Vector2(359, 150)
